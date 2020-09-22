@@ -13,10 +13,12 @@ export const GifExperApp = () => {
    }*/
 
 
+
+
     return (
         <>
             <h2>GifExperApp</h2>
-            <AddCategory/>
+            <AddCategory setCategories={setCategories}/>
             <hr/>
 
             {/* <button onClick={handleAdd}>Agregar</button> */}

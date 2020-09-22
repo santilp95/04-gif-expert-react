@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
 
-export const AddCategory = () => {
+// llamar el componente atravez d destructurizacion
+export const AddCategory = ({setCategories}) => {
 
-    const [inputValue, setInputValue] = useState('Hola Mundo')
+    const [inputValue, setInputValue] = useState('Texto');
 
     const handleInputChange = (e)=>{
         // con esto se caputra el valor
@@ -14,7 +16,14 @@ export const AddCategory = () => {
         // para prevenir el comportamiento por defecto del formulario(osea que actualice toda la pagina)
         e.preventDefault();
 
-        console.log('Submit hecho')
+        if(inputValue.trim().length>2){
+            // recibe las categorias del componente padre e isnerta con el inputValue la nuestra
+            setCategories(categories=>[...categories,inputValue]);
+            setInputValue('');
+        }
+
+        
+       
     }
     
     return (
@@ -26,4 +35,9 @@ export const AddCategory = () => {
             />
         </form>
     )
+}
+
+// hacer obligatorio mandar la funcion
+AddCategory.prototype = {
+    setCategories: PropTypes.func.isRequired
 }
