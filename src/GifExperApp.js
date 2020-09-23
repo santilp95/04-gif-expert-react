@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { AddCategory } from './components/AddCategory';
+import { GifGrid } from './components/GifGrid';
 
 export const GifExperApp = () => {
 
     //const categories = ['One Punch','Naruto','JOJO'];
-   const [categories, setCategories] = useState(['One Punch','Naruto','JOJO']);
+   const [categories, setCategories] = useState(['One Punch']);
    
    /*const handleAdd  =()=>{
        // forma de añadir algo con useStarw
@@ -25,9 +26,11 @@ export const GifExperApp = () => {
 
             <ol>
                 {
-                    categories.map((catgory ) =>{
-                    return <li key={catgory}>{catgory}</li>
-                    })
+                    categories.map((catgory ) =>
+                        <GifGrid
+                            key={catgory}
+                            category={catgory}/>
+                    )   
                 }
             </ol>
         </>
