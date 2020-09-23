@@ -38,6 +38,6 @@ export const AddCategory = ({setCategories}) => {
 }
 
 // hacer obligatorio mandar la funcion
-AddCategory.prototype = {
+AddCategory.propTypes = {
     setCategories: PropTypes.func.isRequired
 }
