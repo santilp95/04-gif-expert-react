@@ -1,7 +1,7 @@
 import'@testing-library/jest-dom';
 import { shallow } from 'enzyme';
 import React from "react";
-import { GifGridItem } from '../components/GifGridItem';
+import { GifGridItem } from '../../components/GifGridItem';
 
 describe('Pruebas <GifGridItem/>', () => {
 
