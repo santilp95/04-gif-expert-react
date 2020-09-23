@@ -18,7 +18,7 @@ export const AddCategory = ({setCategories}) => {
 
         if(inputValue.trim().length>2){
             // recibe las categorias del componente padre e isnerta con el inputValue la nuestra
-            setCategories(categories=>[...categories,inputValue]);
+            setCategories(categories=>[inputValue,...categories]);
             setInputValue('');
         }
 

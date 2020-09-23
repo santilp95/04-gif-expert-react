@@ -8,13 +8,14 @@ export const GifGrid = ({category}) => {
     // esto funciona para ejecutar cuando el compnente se rendiriza por primera vez si se manda el array vacio
     useEffect(() => {
         getGifs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
         
     
 
     const  getGifs = async() =>{
 
-        const url = `https://api.giphy.com/v1/gifs/search?q=Naruto&limit=10&api_key=qsUmBiU0pSR30iCqtxxSlrEeVjYfJAGP`;
+        const url = `https://api.giphy.com/v1/gifs/search?q=${encodeURI(category)}&limit=10&api_key=qsUmBiU0pSR30iCqtxxSlrEeVjYfJAGP`;
         const respuesta = await fetch(url);
         const {data} = await respuesta.json();
 
