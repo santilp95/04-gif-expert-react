@@ -5,8 +5,15 @@ const { AddCategory } = require("../../components/AddCategory");
 
 describe('Pruebas componentes <SddCatgerory />', () => {
 
-    const setCategories = () =>{}
-    const wrapper = shallow(<AddCategory setCategories={setCategories}/>)
+    //evavulauar la funcion
+    const setCategories = jest.fn()
+
+    let wrapper = shallow(<AddCategory setCategories={setCategories}/>);
+
+    beforeEach(()=>{
+        jest.clearAllMocks();
+        wrapper = shallow(<AddCategory setCategories={setCategories}/>);
+    });
 
     test('debe mostrrar correctamente', () => {
 
@@ -25,5 +32,12 @@ describe('Pruebas componentes <SddCatgerory />', () => {
         expect(wrapper.find('p').text().trim()).toBe(value);
     });
     
+    test('NO debe de postear la informacion onSumbmit', () => {
+        
+        wrapper.find('form').simulate('submit',{preventDefault(){}});
+
+        expect(setCategories).not.toHaveBeenCalled();
+
+    });
     
 });

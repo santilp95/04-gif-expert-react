@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // llamar el componente atravez d destructurizacion
 export const AddCategory = ({setCategories}) => {
 
-    const [inputValue, setInputValue] = useState('Texto');
+    const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (e)=>{
         // con esto se caputra el valor
@@ -15,7 +15,7 @@ export const AddCategory = ({setCategories}) => {
     const handleSubmit = (e)=>{
         // para prevenir el comportamiento por defecto del formulario(osea que actualice toda la pagina)
         e.preventDefault();
-
+        
         if(inputValue.trim().length>2){
             // recibe las categorias del componente padre e isnerta con el inputValue la nuestra
             setCategories(categories=>[inputValue,...categories]);

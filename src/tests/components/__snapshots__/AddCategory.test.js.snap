@@ -4,13 +4,11 @@ exports[`Pruebas componentes <SddCatgerory /> debe mostrrar correctamente 1`] = 
 <form
   onSubmit={[Function]}
 >
-  <p>
-    Texto
-  </p>
+  <p />
   <input
     onChange={[Function]}
     type="text"
-    value="Texto"
+    value=""
   />
 </form>
 `;
