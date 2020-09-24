@@ -39,5 +39,28 @@ describe('Pruebas componentes <SddCatgerory />', () => {
         expect(setCategories).not.toHaveBeenCalled();
 
     });
+
+    test('debe de llamar setCategories y limpiar la caja de texto', () => {
+        // 1. simular el inputChange
+
+        const input = wrapper.find('input');
+        const value = 'Cao'
+        input.simulate('change',{
+            target: {
+                value
+            }
+        });
+        // 2. simular el submit
+        wrapper.find('form').simulate('submit',{preventDefault(){}});
+
+        // 3. setCategories se debe haber llamado
+        expect(setCategories).toHaveBeenCalled();
+        expect(setCategories).toHaveBeenCalledTimes(1);
+        expect(setCategories).toHaveBeenCalledWith(expect.any(Function));
+        
+        // 4. el valor del input debe estar  ''
+        expect(wrapper.find('input').prop('value')).toBe('');
+    });
+    
     
 });
