@@ -38,7 +38,11 @@ describe('Pruebas componentes <GifGrid />', () => {
         const wrapper = shallow(<GifGrid category={category}/>);
 
         expect(wrapper).toMatchSnapshot();
+        // hacer que el elemento cuando este lleno no se muestre
+        expect(wrapper.find('p').exists()).toBe(false);
 
+        //que si se muestra la cantidad de elementos sean igual
+        expect(wrapper.find('GifGridItem').length).toBe(gifs.length);
         
     });
     
