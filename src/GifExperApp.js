@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { AddCategory } from './components/AddCategory';
 import { GifGrid } from './components/GifGrid';
 
-export const GifExperApp = () => {
+export const GifExperApp = ({defalutCategories=[]}) => {
 
     //const categories = ['One Punch','Naruto','JOJO'];
-   const [categories, setCategories] = useState(['One Punch']);
-   
+   //const [categories, setCategories] = useState(['One Punch']);
+   const [categories, setCategories] = useState(defalutCategories);
    /*const handleAdd  =()=>{
        // forma de añadir algo con useStarw
        const add='HunterXHunter'
